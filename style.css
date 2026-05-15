@@ -95,6 +95,26 @@ main.container {
   animation: heroFadeUp .9s cubic-bezier(.22,1,.36,1) both;
 }
 
+.hero-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-heading-row h1 {
+  flex: 1 1 auto;
+  margin-bottom: 0;
+}
+
+.hero-logo {
+  flex: 0 0 auto;
+  width: clamp(80px, 10vw, 140px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 12px rgba(0,0,0,.5));
+}
+
 @keyframes heroFadeUp {
   from { opacity: 0; transform: translateY(40px); }
   to   { opacity: 1; transform: translateY(0); }
