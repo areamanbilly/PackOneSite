@@ -249,6 +249,7 @@ document.querySelectorAll('.badge').forEach(b => {
     { src: 'images/photo_tent.jpeg',       caption: 'Camping memories that last a lifetime.' },
     { src: 'images/winter-hike.jpg',       caption: 'Winter hikes — cold weather, warm memories.' },
     { src: 'images/food-drive.jpeg',       caption: 'Giving back: food drive for the Wilmette Food Pantry.' },
+    { src: 'images/nature-cleanup.jpg',    caption: 'Scouts cleaning up a local nature preserve.' },
   ];
 
   const intervals = [13000, 17750, 11500, 20750, 15000];
