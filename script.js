@@ -247,6 +247,8 @@ document.querySelectorAll('.badge').forEach(b => {
     { src: 'images/photo_hiking.jpg',      caption: 'Exploring the outdoors together.' },
     { src: 'images/photo_pinewood.jpeg',   caption: 'The thrill of race day!' },
     { src: 'images/photo_tent.jpeg',       caption: 'Camping memories that last a lifetime.' },
+    { src: 'images/winter-hike.jpg',       caption: 'Winter hikes — cold weather, warm memories.' },
+    { src: 'images/food-drive.jpeg',       caption: 'Giving back: food drive for the Wilmette Food Pantry.' },
   ];
 
   const intervals = [13000, 17750, 11500, 20750, 15000];
