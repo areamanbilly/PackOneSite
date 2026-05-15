@@ -85,7 +85,7 @@ main.container {
   border-radius: 32px;
   min-height: 80vh;
   display: grid;
-  align-items: end;
+  align-items: center;
   background:
     linear-gradient(180deg, rgba(5,18,35,.08) 0%, rgba(5,18,35,.75) 100%),
     url('images/flag raising.png') center 50% / cover no-repeat;
