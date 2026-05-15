@@ -392,9 +392,9 @@ figcaption {
 }
 .section-card figcaption { color: #445; background: #fff; }
 
-#adventure figure.reveal-img { margin-bottom: 1rem; }
-#adventure figure.reveal-img ~ h3 { margin-top: .5rem; }
-#adventure figure.reveal-img ~ p  { margin-top: .25rem; }
+#adventure figure.reveal-img { margin-bottom: .5rem; }
+#adventure figure.reveal-img ~ h3 { margin-top: .4rem; margin-bottom: .2rem; }
+#adventure figure.reveal-img ~ p  { margin-top: 0; margin-bottom: .4rem; }
 
 /* ── Activity strip ── */
 .activity-strip {
