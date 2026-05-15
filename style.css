@@ -42,6 +42,25 @@ nav strong {
   letter-spacing: .04em;
   text-shadow: 0 0 20px rgba(246,196,69,.4);
 }
+
+.nav-center-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.nav-adventureon {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 6px rgba(0,0,0,.5));
+}
 nav a { color: rgba(255,255,255,.82); }
 nav a:hover { color: var(--scout-gold); transition: color .2s; }
 nav a[role="button"], button, .buttonish {
