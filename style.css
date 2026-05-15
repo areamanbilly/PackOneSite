@@ -364,10 +364,10 @@ section { margin: 3.5rem 0; }
   left: 0;
   right: 0;
   z-index: 2;
-  padding: .5rem .9rem;
-  background: rgba(4,17,31,.72);
-  color: rgba(255,255,255,.88);
-  font-size: .8rem;
+  padding: .25rem .7rem;
+  background: rgba(4,17,31,.65);
+  color: rgba(255,255,255,.8);
+  font-size: .68rem;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
