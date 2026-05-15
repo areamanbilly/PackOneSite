@@ -1,0 +1,1 @@
+The user asked to export the generated Wilmette Pack 1 Cub Scout pack website to Replit for further customization. Pack details: Wilmette Pack 1, Wilmette, IL, contact email wilmettepackone@gmail.com. The site is modeled after a Cub Scout recruitment landing page with a hero section, activities, photo storytelling, and a request-info form.
