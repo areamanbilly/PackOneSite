@@ -87,7 +87,7 @@ main.container {
 .hero {
   overflow: hidden;
   border-radius: 32px;
-  min-height: 80vh;
+  min-height: 55vh;
   display: grid;
   align-items: start;
   background:
