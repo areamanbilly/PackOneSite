@@ -98,8 +98,8 @@ main.container {
 .hero-heading-row {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  gap: 2rem;
+  flex-wrap: nowrap;
 }
 
 .hero-heading-row h1 {
@@ -109,10 +109,10 @@ main.container {
 
 .hero-logo {
   flex: 0 0 auto;
-  width: clamp(80px, 10vw, 140px);
+  width: clamp(120px, 16vw, 220px);
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 2px 12px rgba(0,0,0,.5));
+  filter: drop-shadow(0 2px 16px rgba(0,0,0,.6));
 }
 
 @keyframes heroFadeUp {
