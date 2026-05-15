@@ -264,8 +264,15 @@ document.querySelectorAll('.badge').forEach(b => {
   }
 
   function startSlot(figure, intervalMs) {
-    const img = figure.querySelector('img');
     const cap = figure.querySelector('figcaption');
+
+    // Two stacked <img> layers for true crossfade — no flash
+    const imgA = figure.querySelector('img');
+    imgA.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 0.9s ease;opacity:1;';
+
+    const imgB = imgA.cloneNode(false);
+    imgB.style.cssText = imgA.style.cssText + 'opacity:0;';
+    figure.insertBefore(imgB, imgA);   // imgB below, imgA on top
 
     const taken = [...activeSrcs];
     const available = pool.filter(p => !taken.includes(p.src));
@@ -273,26 +280,41 @@ document.querySelectorAll('.badge').forEach(b => {
       ? available[Math.floor(Math.random() * available.length)]
       : pool[Math.floor(Math.random() * pool.length)];
 
-    img.src = initial.src;
-    img.alt = initial.caption;
+    imgA.src = initial.src;
+    imgA.alt = initial.caption;
     if (cap) cap.textContent = initial.caption;
     activeSrcs.add(initial.src);
     let currentSrc = initial.src;
+
+    // top always points to whichever layer is currently visible
+    let top = imgA, bottom = imgB;
 
     setInterval(() => {
       const next = pickNext(currentSrc);
       const preloader = new Image();
       preloader.onload = () => {
-        img.classList.add('fading');
-        setTimeout(() => {
-          activeSrcs.delete(currentSrc);
-          img.src = next.src;
-          img.alt = next.caption;
-          if (cap) cap.textContent = next.caption;
-          currentSrc = next.src;
-          activeSrcs.add(currentSrc);
-          img.classList.remove('fading');
-        }, 900);
+        // Load next into the hidden bottom layer
+        bottom.src = next.src;
+        bottom.alt = next.caption;
+
+        // Wait a frame so the browser has painted the new src before crossfading
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            // Fade top out, bottom in
+            top.style.opacity = '0';
+            bottom.style.opacity = '1';
+            if (cap) cap.textContent = next.caption;
+
+            activeSrcs.delete(currentSrc);
+            currentSrc = next.src;
+            activeSrcs.add(currentSrc);
+
+            // Swap roles after transition completes
+            setTimeout(() => {
+              [top, bottom] = [bottom, top];
+            }, 950);
+          });
+        });
       };
       preloader.src = next.src;
     }, intervalMs);
