@@ -249,7 +249,7 @@ document.querySelectorAll('.badge').forEach(b => {
     { src: 'images/photo_tent.jpeg',       caption: 'Camping memories that last a lifetime.' },
   ];
 
-  const intervals = [5200, 7100, 4600, 8300, 6000];
+  const intervals = [13000, 17750, 11500, 20750, 15000];
 
   function pickNext(current) {
     const choices = pool.filter(p => p.src !== current);
