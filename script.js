@@ -234,12 +234,19 @@ document.querySelectorAll('.badge').forEach(b => {
 /* ── Photo grid rotator ── */
 (function () {
   const pool = [
-    { src: 'images/IMG_0239.jpeg', caption: 'Outdoor adventures on the water.' },
-    { src: 'images/IMG_1563.jpg',  caption: 'Campfires, outdoor skills, and friendship.' },
-    { src: 'images/IMG_1913.jpg',  caption: 'Hands-on creativity and problem solving.' },
-    { src: 'images/IMG_3567.jpeg', caption: 'Field trips that spark curiosity.' },
-    { src: 'images/IMG_3973.jpeg', caption: 'Service projects that help our neighbors.' },
-    { src: 'images/IMG_3941.jpeg', caption: 'Pinewood Derby — build, race, repeat.' },
+    { src: 'images/IMG_0239.jpeg',         caption: 'Outdoor adventures on the water.' },
+    { src: 'images/IMG_1563.jpg',          caption: 'Campfires, outdoor skills, and friendship.' },
+    { src: 'images/IMG_1913.jpg',          caption: 'Hands-on creativity and problem solving.' },
+    { src: 'images/IMG_3567.jpeg',         caption: 'Field trips that spark curiosity.' },
+    { src: 'images/IMG_3973.jpeg',         caption: 'Service projects that help our neighbors.' },
+    { src: 'images/IMG_3941.jpeg',         caption: 'Pinewood Derby — build, race, repeat.' },
+    { src: 'images/photo_woodworking.jpeg',caption: 'Real skills, real tools, real confidence.' },
+    { src: 'images/photo_ceremony.jpg',    caption: 'Scouts serving their community with pride.' },
+    { src: 'images/photo_campfire2.jpeg',  caption: 'Evenings around the fire with friends.' },
+    { src: 'images/photo_canoe.jpg',       caption: 'Paddling adventures on the water.' },
+    { src: 'images/photo_hiking.jpg',      caption: 'Exploring the outdoors together.' },
+    { src: 'images/photo_pinewood.jpeg',   caption: 'The thrill of race day!' },
+    { src: 'images/photo_tent.jpeg',       caption: 'Camping memories that last a lifetime.' },
   ];
 
   const intervals = [5200, 7100, 4600, 8300, 6000];
