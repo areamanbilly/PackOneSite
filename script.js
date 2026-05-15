@@ -279,16 +279,20 @@ document.querySelectorAll('.badge').forEach(b => {
 
     setInterval(() => {
       const next = pickNext(currentSrc);
-      img.classList.add('fading');
-      setTimeout(() => {
-        activeSrcs.delete(currentSrc);
-        img.src = next.src;
-        img.alt = next.caption;
-        if (cap) cap.textContent = next.caption;
-        currentSrc = next.src;
-        activeSrcs.add(currentSrc);
-        img.classList.remove('fading');
-      }, 900);
+      const preloader = new Image();
+      preloader.onload = () => {
+        img.classList.add('fading');
+        setTimeout(() => {
+          activeSrcs.delete(currentSrc);
+          img.src = next.src;
+          img.alt = next.caption;
+          if (cap) cap.textContent = next.caption;
+          currentSrc = next.src;
+          activeSrcs.add(currentSrc);
+          img.classList.remove('fading');
+        }, 900);
+      };
+      preloader.src = next.src;
     }, intervalMs);
   }
 
