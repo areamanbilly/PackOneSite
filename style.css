@@ -343,6 +343,12 @@ section { margin: 3.5rem 0; }
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 28px 60px rgba(0,0,0,.5);
 }
+.photo-slot img {
+  transition: opacity 0.9s ease;
+}
+.photo-slot img.fading {
+  opacity: 0;
+}
 .photo-grid figure:nth-child(1) { grid-column: span 7; }
 .photo-grid figure:nth-child(2) { grid-column: span 5; }
 .photo-grid figure:nth-child(3),

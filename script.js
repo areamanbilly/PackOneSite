@@ -230,3 +230,48 @@ document.querySelectorAll('.badge').forEach(b => {
   b.addEventListener('mouseenter', () => b.classList.add('badge-pop'));
   b.addEventListener('animationend', () => b.classList.remove('badge-pop'));
 });
+
+/* ── Photo grid rotator ── */
+(function () {
+  const pool = [
+    { src: 'images/IMG_0239.jpeg', caption: 'Outdoor adventures on the water.' },
+    { src: 'images/IMG_1563.jpg',  caption: 'Campfires, outdoor skills, and friendship.' },
+    { src: 'images/IMG_1913.jpg',  caption: 'Hands-on creativity and problem solving.' },
+    { src: 'images/IMG_3567.jpeg', caption: 'Field trips that spark curiosity.' },
+    { src: 'images/IMG_3973.jpeg', caption: 'Service projects that help our neighbors.' },
+    { src: 'images/IMG_3941.jpeg', caption: 'Pinewood Derby — build, race, repeat.' },
+  ];
+
+  const intervals = [5200, 7100, 4600, 8300, 6000];
+
+  function pickNext(current) {
+    const choices = pool.filter(p => p.src !== current);
+    return choices[Math.floor(Math.random() * choices.length)];
+  }
+
+  function startSlot(figure, intervalMs) {
+    const img = figure.querySelector('img');
+    const cap = figure.querySelector('figcaption');
+
+    const initial = pool[Math.floor(Math.random() * pool.length)];
+    img.src = initial.src;
+    img.alt = initial.caption;
+    if (cap) cap.textContent = initial.caption;
+    let currentSrc = initial.src;
+
+    setInterval(() => {
+      const next = pickNext(currentSrc);
+      img.classList.add('fading');
+      setTimeout(() => {
+        img.src = next.src;
+        img.alt = next.caption;
+        if (cap) cap.textContent = next.caption;
+        currentSrc = next.src;
+        img.classList.remove('fading');
+      }, 900);
+    }, intervalMs);
+  }
+
+  const slots = document.querySelectorAll('.photo-slot');
+  slots.forEach((slot, i) => startSlot(slot, intervals[i] || 5000 + i * 1300));
+})();
