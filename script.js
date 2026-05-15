@@ -251,8 +251,13 @@ document.querySelectorAll('.badge').forEach(b => {
 
   const intervals = [13000, 17750, 11500, 20750, 15000];
 
-  function pickNext(current) {
-    const choices = pool.filter(p => p.src !== current);
+  const activeSrcs = new Set();
+
+  function pickNext(currentSrc) {
+    const available = pool.filter(p => !activeSrcs.has(p.src) || p.src === currentSrc);
+    const choices = available.length > 1
+      ? available.filter(p => p.src !== currentSrc)
+      : pool.filter(p => p.src !== currentSrc);
     return choices[Math.floor(Math.random() * choices.length)];
   }
 
@@ -260,20 +265,28 @@ document.querySelectorAll('.badge').forEach(b => {
     const img = figure.querySelector('img');
     const cap = figure.querySelector('figcaption');
 
-    const initial = pool[Math.floor(Math.random() * pool.length)];
+    const taken = [...activeSrcs];
+    const available = pool.filter(p => !taken.includes(p.src));
+    const initial = available.length
+      ? available[Math.floor(Math.random() * available.length)]
+      : pool[Math.floor(Math.random() * pool.length)];
+
     img.src = initial.src;
     img.alt = initial.caption;
     if (cap) cap.textContent = initial.caption;
+    activeSrcs.add(initial.src);
     let currentSrc = initial.src;
 
     setInterval(() => {
       const next = pickNext(currentSrc);
       img.classList.add('fading');
       setTimeout(() => {
+        activeSrcs.delete(currentSrc);
         img.src = next.src;
         img.alt = next.caption;
         if (cap) cap.textContent = next.caption;
         currentSrc = next.src;
+        activeSrcs.add(currentSrc);
         img.classList.remove('fading');
       }, 900);
     }, intervalMs);
