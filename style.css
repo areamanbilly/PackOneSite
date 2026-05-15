@@ -345,9 +345,31 @@ section { margin: 3.5rem 0; }
 }
 .photo-slot img {
   transition: opacity 0.9s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  inset: 0;
 }
 .photo-slot img.fading {
   opacity: 0;
+}
+.photo-slot {
+  position: relative;
+}
+.photo-slot figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: .5rem .9rem;
+  background: rgba(4,17,31,.72);
+  color: rgba(255,255,255,.88);
+  font-size: .8rem;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 .photo-grid figure:nth-child(1) { grid-column: span 7; }
 .photo-grid figure:nth-child(2) { grid-column: span 5; }
